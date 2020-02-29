@@ -1,0 +1,400 @@
+{
+    "questions": [
+        {
+            "component": "data",
+            "question": "Is the source of data/labels known?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Is the source appropriately credited with license?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "data",
+            "question": "Is the dataset publicly available?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": -1,
+            "transparency": 1
+        },
+        {
+            "component": "data",
+            "question": "Is the training/validation data respresentative of test data?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Does the dataset follow standard folder structure and file formats? Like COCODatasets",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Is the validation set well defined?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Is the dataset published in a conference or journal?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "data",
+            "question": "Is the data anonymized?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 3,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Have the features been analysed?",
+            "weight": 2,
+            "fairness": 0,
+            "accountability": 2,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Are the assumptions of the data reported?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "data",
+            "question": "Are the feature/class imbalances measured?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Are the invariances of the dataset noted?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Is data augmentation used to enlarge the dataset or address invariances?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "data",
+            "question": "Are infographics/graphs used to convey the analyses on the dataset?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 3
+        },
+        {
+            "component": "model",
+            "question": "Is a baseline model available for reference?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 3,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Have traditional models been evaluated for reference?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "model",
+            "question": "Has the model overfitted to a sample dataset?",
+            "weight": 2,
+            "fairness": 0,
+            "accountability": 2,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is the model dependent on specific features?",
+            "weight": 3,
+            "fairness": -3,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is most of the model an original idea?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 1,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is the model based on published research?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Has the base paper been appropriately cited?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "model",
+            "question": "Does the base paper have 10+ citations?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is the model state of the art in its category?",
+            "weight": 2,
+            "fairness": 0,
+            "accountability": 2,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is the model tuned for optimal hyper-parameters?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is the trained model publicly shared?",
+            "weight": 2,
+            "fairness": 2,
+            "accountability": 2,
+            "confidentiality": -2,
+            "transparency": 2
+        },
+        {
+            "component": "model",
+            "question": "Is the model architecture publicly shared?",
+            "weight": 2,
+            "fairness": 2,
+            "accountability": 0,
+            "confidentiality": -2,
+            "transparency": 2
+        },
+        {
+            "component": "model",
+            "question": "Are the results of the hyperparameter tuning reported?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "model",
+            "question": "Does the model allow use of Explainable A.I. (XAI) methods?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "model",
+            "question": "Does the model employ Explainable A.I. (XAI) methods?",
+            "weight": 2,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 2
+        },
+        {
+            "component": "model",
+            "question": "Does the model use an active learning framework?",
+            "weight": 2,
+            "fairness": 2,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "model",
+            "question": "Is the model published in a conference or journal?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "deploy",
+            "question": "Is there a human in the decision making process?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 3,
+            "confidentiality": -3,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Are the decisions made by the model analysed at regular intervals?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 3,
+            "confidentiality": -3,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Does the model learn from all the production data via active learning?",
+            "weight": 2,
+            "fairness": 2,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Are infographics/graphs used to convey the analyses of the production data?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 3
+        },
+        {
+            "component": "deploy",
+            "question": "Is the production data anonymised?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 3,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Is the inference data stored for future review, analyses or modelling?",
+            "weight": 3,
+            "fairness": 0,
+            "accountability": 3,
+            "confidentiality": -3,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Has the inference data been analysed?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Is the inference data publicly shared?",
+            "weight": 2,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": -2,
+            "transparency": 2
+        },
+        {
+            "component": "deploy",
+            "question": "Are the predictions averaged using ensemble methods?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Is the confidence score considered in the decision of the model?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 1,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "Does the model make a prediction for every production datapoint regardless of the decision workflow?",
+            "weight": 1,
+            "fairness": 1,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 0
+        },
+        {
+            "component": "deploy",
+            "question": "For Explainable A.I. (XAI) methods, is the explanation for the prediction shared in a decision report?",
+            "weight": 1,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 1
+        },
+        {
+            "component": "deploy",
+            "question": "Is the prediction confidence shared in a decision report?",
+            "weight": 2,
+            "fairness": 0,
+            "accountability": 0,
+            "confidentiality": 0,
+            "transparency": 2
+        }
+    ]
+}

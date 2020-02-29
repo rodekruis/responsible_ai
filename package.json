@@ -1,0 +1,72 @@
+{
+    "name": "responsible_ai",
+    "version": "0.1.0",
+    "description": "Estimate the responsibility of your A.I. project in terms of fairness, accountability, confidentiality and transparency.",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gulfaraz/responsible_ai.git"
+    },
+    "keywords": [
+        "responsible_ai",
+        "ethical",
+        "responsible",
+        "artificial",
+        "intelligence"
+    ],
+    "author": "Gulfaraz Rahman",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/gulfaraz/responsible_ai/issues"
+    },
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.4.1",
+        "@testing-library/user-event": "^7.2.1",
+        "bulma": "^0.8.0",
+        "node-sass": "^4.13.1",
+        "react": "^16.13.0",
+        "react-dom": "^16.13.0",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "3.4.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "postinstall": "npx precommit install",
+        "prettier": "prettier --write \"**/*.{js,css,html,json}\" --ignore-path ./.prettierignore"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*.{js,css,html,json}": [
+            "prettier --write --ignore-path ./.prettierignore",
+            "git add"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "husky": "^4.2.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^1.19.1"
+    }
+}

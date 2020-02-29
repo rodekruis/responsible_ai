@@ -1,0 +1,23 @@
+.router-content {
+    min-height: 550px;
+    margin-bottom: 30px;
+}
+
+.level {
+    margin-bottom: 3rem !important;
+}
+
+.field {
+    margin-bottom: 1rem;
+}
+
+.field-label {
+    text-align: left;
+    margin-right: 0;
+    margin-left: 2rem;
+}
+
+.field-body {
+    flex-grow: 0;
+    margin-right: 2rem;
+}

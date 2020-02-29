@@ -3,6 +3,22 @@
     margin-bottom: 30px;
 }
 
+.blame-image {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.components-image {
+    width: 50%;
+    margin: 30px auto;
+    display: block;
+}
+
+.term-column-header {
+    width: 20%;
+}
+
 .level {
     margin-bottom: 3rem !important;
 }
@@ -20,4 +36,13 @@
 .field-body {
     flex-grow: 0;
     margin-right: 2rem;
+}
+
+@media screen and (min-width: 1025px) {
+    .navbar-item.is-hoverable:hover .navbar-dropdown {
+        display: block !important;
+    }
+    .navbar-item.is-hoverable:focus-within .navbar-dropdown {
+        display: none;
+    }
 }

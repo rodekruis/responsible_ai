@@ -1,4 +1,6 @@
-0.1.0 (2020-MM-DD)
+0.1.0 (2020-02-29)
 ------------------
-- [x] FACT Score Calculator
-- [ ] Additional text and contact information
+- FACT Score Calculator
+- Glossary
+- Need for Responsible A.I.
+- Feedback

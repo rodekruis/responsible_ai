@@ -189,7 +189,7 @@ export default class App extends React.Component {
         return (
             <div className="has-text-centered">
                 Calculate your F.A.C.T. score by answering a set of simple
-                Yes/No questions. Select a any tab to get started.
+                Yes/No questions. Select any tab to get started.
             </div>
         );
     }

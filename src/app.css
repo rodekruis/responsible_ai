@@ -3,6 +3,10 @@
     margin-bottom: 30px;
 }
 
+.term-column-header {
+    width: 20%;
+}
+
 .level {
     margin-bottom: 3rem !important;
 }

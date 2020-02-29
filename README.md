@@ -9,4 +9,4 @@ accountability, confidentiality and transparency.
 
 ## Contributing
 
-We use [Prettier](https://github.com/prettier/prettier) and [pre-commit](https://pre-commit.com/) to keep our code clean.
+We use [Prettier](https://github.com/prettier/prettier) to keep our code clean.

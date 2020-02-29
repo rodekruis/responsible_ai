@@ -57,9 +57,9 @@ export default class App extends React.Component {
                 <div id="side-menu" className="navbar-menu">
                     <div className="navbar-start">
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <a className="navbar-link" href="#/">
+                            <span className="navbar-link">
                                 Responsible A.I.
-                            </a>
+                            </span>
 
                             <div className="navbar-dropdown">
                                 <Link className="navbar-item" to="/">
@@ -294,14 +294,50 @@ export default class App extends React.Component {
 
     render_need_for_responsible_ai() {
         return (
-            <section className="hero">
-                <div className="hero-body">
-                    <div className="container">
-                        <h1 className="title">The Need for Responsible A.I.</h1>
-                        <h1 className="subtitle">Blah de blah de blah...</h1>
+            <div>
+                <section className="hero">
+                    <div className="hero-body">
+                        <div className="container">
+                            <h1 className="title">
+                                The Need for Responsible A.I.
+                            </h1>
+                        </div>
                     </div>
+                </section>
+                <div className="container">
+                    <img
+                        className="blame-image"
+                        alt="Who is to blame when an A.I. decision goes bad?"
+                        src="blame.png"
+                    />
+                    <div className="has-text-centered">
+                        <a href="http://www.drawingsofdogs.co.uk/">
+                            <small>Image Source: Drawings of Dogs</small>
+                        </a>
+                    </div>
+                    <br />
+                    <p>
+                        Artificial Intelligence or A.I. encompasses a wide range
+                        of fields and methods. Formulating a consistent
+                        definition for A.I. remains evasive yet we attempt to
+                        draw a framework to measure ethical practices. In order
+                        to cast a wide net across the range of A.I. topics and
+                        remain tangible in practical solutions, we rely on high
+                        level abstractions of the involved components.
+                    </p>
+                    <img
+                        className="components-image"
+                        alt="Components of an A.I. project - Data, Model and Deploy"
+                        src="components.png"
+                    />
+                    <p>
+                        Any system can be modelled using input-process-output
+                        with reasonable encapsulation of the concepts.
+                        Similarly, an A.I. system can be represented using a
+                        data-model-deploy pipeline.
+                    </p>
                 </div>
-            </section>
+            </div>
         );
     }
 
@@ -556,26 +592,17 @@ export default class App extends React.Component {
         );
     }
 
-    render_contact() {
-        return (
-            <section className="hero">
-                <div className="hero-body">
-                    <div className="container">
-                        <h1 className="title">Contact</h1>
-                        <h1 className="subtitle">Blah de blah de blah...</h1>
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
     render_feedback() {
         return (
             <section className="hero">
                 <div className="hero-body">
                     <div className="container">
-                        <h1 className="title">Feedback</h1>
-                        <h1 className="subtitle">Blah de blah de blah...</h1>
+                        <h1 className="title">
+                            <a href="mailto:grahman@rodekruis.nl?subject=Responsible A.I.">
+                                Email
+                            </a>{" "}
+                            us your feedback.
+                        </h1>
                     </div>
                 </div>
             </section>
@@ -652,9 +679,6 @@ export default class App extends React.Component {
                             </Route>
                             <Route path="/glossary">
                                 {this.render_glossary()}
-                            </Route>
-                            <Route path="/contact">
-                                {this.render_contact()}
                             </Route>
                             <Route path="/feedback">
                                 {this.render_feedback()}

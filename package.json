@@ -1,6 +1,6 @@
 {
     "name": "responsible_ai",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Estimate the responsibility of your A.I. project in terms of fairness, accountability, confidentiality and transparency.",
     "repository": {
         "type": "git",
@@ -35,7 +35,6 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "postinstall": "npx precommit install",
         "prettier": "prettier --write \"**/*.{js,css,html,json}\" --ignore-path ./.prettierignore"
     },
     "husky": {

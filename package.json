@@ -20,10 +20,13 @@
     },
     "private": true,
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.12.1",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.4.1",
         "@testing-library/user-event": "^7.2.1",
         "bulma": "^0.8.0",
+        "jspdf": "^1.5.3",
+        "jspdf-autotable": "^3.2.13",
         "node-sass": "^4.13.1",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",

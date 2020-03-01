@@ -1,4 +1,4 @@
-[![stable: 0.1.0](https://img.shields.io/badge/stable-0.1.0-ED2E26.svg?style=flat-square)](https://github.com/gulfaraz/responsible_ai)
+[![stable: 0.2.0](https://img.shields.io/badge/stable-0.2.0-ED2E26.svg?style=flat-square)](https://github.com/gulfaraz/responsible_ai)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # Responsible A.I.

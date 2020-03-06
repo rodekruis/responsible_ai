@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Score from "./score/Score";
+import Report from "./report/Report";
 import "bulma";
 import "./app.scss";
 
-import * as jsPDF from "jspdf";
-import "jspdf-autotable";
-
-const DEFAULT_ANSWER = "idk";
+const DEFAULT_ANSWER = "yes";
 
 const ANSWER_KEY = {
     yes: "Yes",
@@ -15,21 +13,12 @@ const ANSWER_KEY = {
     idk: "I don't know",
 };
 
-const TITLE_FONT_SIZE = 36;
-const HEADER_FONT_SIZE = 24;
-const TIMESTAMP_FONT_SIZE = 11;
-const TEXT_FONT_SIZE = 14;
-
 export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             questions: [],
             active_component: "data",
-            show_report_modal: false,
-            project_name: "",
-            evaluator_name: "",
-            project_comments: "",
         };
     }
 
@@ -232,120 +221,6 @@ export default class App extends React.Component {
         );
     }
 
-    toggle_report_modal(show_modal) {
-        this.setState({
-            show_report_modal: show_modal,
-        });
-    }
-
-    update_input_value(variable_name) {
-        return event => {
-            let update_dict = {};
-            update_dict[variable_name] = event.target.value;
-            this.setState(update_dict);
-        };
-    }
-
-    render_report_modal() {
-        return (
-            <div
-                className={
-                    "modal" + (this.state.show_report_modal ? " is-active" : "")
-                }
-            >
-                <div className="modal-background"></div>
-                <div className="modal-card">
-                    <header className="modal-card-head">
-                        <p className="modal-card-title">
-                            Export Responsibility Report
-                        </p>
-                        <button
-                            className="delete"
-                            aria-label="close"
-                            onClick={() => this.toggle_report_modal(false)}
-                        ></button>
-                    </header>
-                    <section className="modal-card-body">
-                        <div className="field">
-                            <label className="label">
-                                Project Name
-                                <span className="has-text-danger"> *</span>
-                            </label>
-                            <div className="control">
-                                <input
-                                    className="input"
-                                    type="text"
-                                    placeholder="e.g Alpha Go"
-                                    value={this.state.project_name}
-                                    onChange={this.update_input_value(
-                                        "project_name"
-                                    )}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="field">
-                            <label className="label">
-                                Evaluator Name
-                                <span className="has-text-danger"> *</span>
-                            </label>
-                            <div className="control">
-                                <input
-                                    className="input"
-                                    type="text"
-                                    placeholder="e.g. Lee Sedol"
-                                    value={this.state.evaluator_name}
-                                    onChange={this.update_input_value(
-                                        "evaluator_name"
-                                    )}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="field">
-                            <label className="label">Comments</label>
-                            <div className="control">
-                                <textarea
-                                    className="textarea has-fixed-size"
-                                    placeholder="e.g. AlphaGo is a computer program that plays the board game Go."
-                                    value={this.state.project_comments}
-                                    onChange={this.update_input_value(
-                                        "project_comments"
-                                    )}
-                                ></textarea>
-                            </div>
-                            <p className="help">
-                                <span className="has-text-danger">*</span>{" "}
-                                indicates required fields
-                            </p>
-                        </div>
-                    </section>
-                    <footer className="modal-card-foot">
-                        <button
-                            className="button is-primary"
-                            onClick={this.create_report.bind(this)}
-                            disabled={
-                                !this.state.project_name ||
-                                !this.state.evaluator_name
-                            }
-                        >
-                            <span className="icon is-medium">
-                                <i className="fas fa-file-download"></i>
-                            </span>
-                            <span>Download</span>
-                        </button>
-                        <button
-                            className="button"
-                            onClick={() => this.toggle_report_modal(false)}
-                        >
-                            Cancel
-                        </button>
-                    </footer>
-                </div>
-            </div>
-        );
-    }
-
     load_fact_score() {
         return (
             <nav className="level">
@@ -355,19 +230,11 @@ export default class App extends React.Component {
                     </div>
                 </div>
                 <Score score_value={this.calculate_score()} />
-                <div
-                    className="level-item has-text-centered download-report-interaction"
-                    onClick={() => this.toggle_report_modal(true)}
-                >
-                    <div>
-                        <p className="heading">Download</p>
-                        <p className="title">
-                            <span className="icon">
-                                <i className="fas fa-file-download"></i>
-                            </span>
-                        </p>
-                    </div>
-                </div>
+                <Report
+                    answer_key={ANSWER_KEY}
+                    calculate_score={this.calculate_score}
+                    questions={this.state.questions}
+                />
             </nav>
         );
     }
@@ -499,7 +366,6 @@ export default class App extends React.Component {
                         ? this.load_questions(this.state.active_component)
                         : this.no_active_component()}
                 </div>
-                {this.render_report_modal()}
             </div>
         );
     }
@@ -741,8 +607,8 @@ export default class App extends React.Component {
         );
     }
 
-    calculate_score(metric, component) {
-        let numerator = this.state.questions
+    calculate_score(metric, component, questions = this.state.questions) {
+        let numerator = questions
             .map(question => {
                 const answer_weight = question.answer === "yes";
                 const component_weight = component
@@ -761,7 +627,7 @@ export default class App extends React.Component {
                 );
             })
             .reduce((accumulator, current) => accumulator + current, 0);
-        let denominator = this.state.questions
+        let denominator = questions
             .map(question => {
                 const component_weight = component
                     ? question.component === component
@@ -797,190 +663,6 @@ export default class App extends React.Component {
                 </div>
             </footer>
         );
-    }
-
-    add_report_title(doc) {
-        doc.setFontSize(TITLE_FONT_SIZE);
-        doc.text("Responsible A.I. Report", 15, 25);
-    }
-
-    add_report_project_details(doc) {
-        doc.setFontSize(TEXT_FONT_SIZE);
-
-        doc.autoTable({
-            theme: "grid",
-            margin: { left: 15 },
-            startY: 50,
-            columnStyles: {
-                0: {
-                    cellWidth: 30,
-                },
-                1: {
-                    fontStyle: "bold",
-                },
-            },
-            body: [
-                ["Project Name", this.state.project_name],
-                ["Evaluator Name", this.state.evaluator_name],
-                ["Comments", this.state.project_comments],
-            ],
-        });
-    }
-
-    add_report_timestamp(doc) {
-        const timestamp = new Date();
-        const timestampISOFormat = timestamp.toISOString();
-        const timestampReadableFormat = timestamp.toLocaleString("en-GB");
-        doc.setFontSize(TIMESTAMP_FONT_SIZE);
-        doc.text("Created on: " + timestampReadableFormat, 17, 35);
-        return timestampISOFormat;
-    }
-
-    add_report_scores(doc) {
-        doc.setFontSize(HEADER_FONT_SIZE);
-        doc.text("F.A.C.T. Score: " + this.calculate_score() + "%", 17, 95);
-
-        doc.text("Metrics,", 15, 120);
-        doc.setFontSize(TEXT_FONT_SIZE);
-
-        doc.autoTable({
-            theme: "grid",
-            margin: { left: 20 },
-            startY: 130,
-            columnStyles: {
-                0: {
-                    cellWidth: 30,
-                },
-                1: {
-                    fontStyle: "bold",
-                    cellWidth: 15,
-                    halign: "right",
-                },
-            },
-            body: [
-                ["Fairness", this.calculate_score("fairness") + "%"],
-                [
-                    "Accountability",
-                    this.calculate_score("accountability") + "%",
-                ],
-                [
-                    "Confidentiality",
-                    this.calculate_score("confidentiality") + "%",
-                ],
-                ["Transparency", this.calculate_score("transparency") + "%"],
-            ],
-        });
-
-        doc.setFontSize(HEADER_FONT_SIZE);
-        doc.text("Components,", 15, 185);
-        doc.setFontSize(TEXT_FONT_SIZE);
-
-        doc.autoTable({
-            theme: "grid",
-            margin: { left: 20 },
-            startY: 195,
-            headStyles: { halign: "center", fillColor: [67, 125, 181] },
-            columnStyles: {
-                1: {
-                    fontStyle: "bold",
-                    halign: "center",
-                },
-                2: {
-                    fontStyle: "bold",
-                    halign: "center",
-                },
-                3: {
-                    fontStyle: "bold",
-                    halign: "center",
-                },
-                4: {
-                    fontStyle: "bold",
-                    halign: "center",
-                },
-                5: {
-                    fontStyle: "bold",
-                    halign: "center",
-                },
-            },
-            head: [
-                [
-                    "Component",
-                    "F.A.C.T.",
-                    "Fairness",
-                    "Accountability",
-                    "Confidentiality",
-                    "Transparency",
-                ],
-            ],
-            body: [
-                [
-                    "Data",
-                    this.calculate_score(null, "data") + "%",
-                    this.calculate_score("fairness", "data") + "%",
-                    this.calculate_score("accountability", "data") + "%",
-                    this.calculate_score("confidentiality", "data") + "%",
-                    this.calculate_score("transparency", "data") + "%",
-                ],
-                [
-                    "Model",
-                    this.calculate_score(null, "model") + "%",
-                    this.calculate_score("fairness", "model") + "%",
-                    this.calculate_score("accountability", "model") + "%",
-                    this.calculate_score("confidentiality", "model") + "%",
-                    this.calculate_score("transparency", "model") + "%",
-                ],
-                [
-                    "Deploy",
-                    this.calculate_score(null, "deploy") + "%",
-                    this.calculate_score("fairness", "deploy") + "%",
-                    this.calculate_score("accountability", "deploy") + "%",
-                    this.calculate_score("confidentiality", "deploy") + "%",
-                    this.calculate_score("transparency", "deploy") + "%",
-                ],
-            ],
-        });
-    }
-
-    add_component_questions(doc, questions, component, component_name) {
-        doc.addPage();
-        doc.setFontSize(HEADER_FONT_SIZE);
-        doc.text(component_name, 15, 20);
-        doc.setFontSize(TEXT_FONT_SIZE);
-        let question_table = [];
-        questions
-            .filter(question => {
-                return question.component === component;
-            })
-            .map(question => {
-                question_table.push([
-                    question.question,
-                    ANSWER_KEY[question.answer],
-                ]);
-                return question;
-            });
-        const question_table_headers = [["Question", "Answer"]];
-        doc.autoTable({
-            margin: { top: 30, left: 15 },
-            head: question_table_headers,
-            body: question_table,
-        });
-    }
-
-    add_report_questions(doc, questions) {
-        this.add_component_questions(doc, questions, "data", "Data");
-        this.add_component_questions(doc, questions, "model", "Model");
-        this.add_component_questions(doc, questions, "deploy", "Deploy");
-    }
-
-    create_report() {
-        const doc = new jsPDF();
-        this.add_report_title(doc);
-        const timestamp = this.add_report_timestamp(doc);
-        this.add_report_project_details(doc);
-        this.add_report_scores(doc);
-        this.add_report_questions(doc, this.state.questions);
-        doc.save("Responsible-AI-Report-" + timestamp + ".pdf");
-        this.toggle_report_modal(false);
     }
 
     render() {

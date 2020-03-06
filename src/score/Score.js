@@ -14,25 +14,33 @@ export default class Score extends React.Component {
         };
     }
 
+    color_class() {
+        return this.props.score_value < this.state.danger_threshold
+            ? "has-text-danger"
+            : this.props.score_value > this.state.success_threshold
+            ? "has-text-success"
+            : "";
+    }
+
+    advice() {
+        return this.props.score_value < this.state.danger_threshold
+            ? "Try to get more 'Yes' answers to improve your score."
+            : this.props.score_value > this.state.success_threshold
+            ? "You're doing great!"
+            : "Try to get more 'Yes' answers to improve your score.";
+    }
+
     render() {
         return (
             <div className="level-item has-text-centered">
-                <div>
+                <div
+                    className="has-tooltip-bottom"
+                    data-tooltip={this.advice()}
+                >
                     {this.props.label ? (
                         <p className="heading">{this.props.label}</p>
                     ) : null}
-                    <p
-                        className={
-                            "title " +
-                            (this.props.score_value <
-                            this.state.danger_threshold
-                                ? "has-text-danger"
-                                : this.props.score_value >
-                                  this.state.success_threshold
-                                ? "has-text-success"
-                                : "")
-                        }
-                    >
+                    <p className={"title " + this.color_class()}>
                         {this.props.score_value}%
                     </p>
                 </div>

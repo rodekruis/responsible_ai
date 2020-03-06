@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Need from "./need/Need";
-import Glossary from "./glossary/Glossary";
 import Score from "./score/Score";
 import Report from "./report/Report";
+import Glossary from "./glossary/Glossary";
+import Feedback from "./feedback/Feedback";
 import Footer from "./footer/Footer";
 import "bulma";
 import "./app.scss";
@@ -326,23 +327,6 @@ export default class App extends React.Component {
         );
     }
 
-    render_feedback() {
-        return (
-            <section className="hero">
-                <div className="hero-body">
-                    <div className="container">
-                        <h1 className="title">
-                            <a href="mailto:grahman@rodekruis.nl?subject=Responsible A.I.">
-                                Email
-                            </a>{" "}
-                            us your feedback.
-                        </h1>
-                    </div>
-                </div>
-            </section>
-        );
-    }
-
     calculate_score(metric, component, questions = this.state.questions) {
         let numerator = questions
             .map(question => {
@@ -397,7 +381,7 @@ export default class App extends React.Component {
                                 <Glossary />
                             </Route>
                             <Route path="/feedback">
-                                {this.render_feedback()}
+                                <Feedback />
                             </Route>
                             <Route path="/">
                                 <Need />

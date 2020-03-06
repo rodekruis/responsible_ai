@@ -1,6 +1,6 @@
 0.3.0 (2020-MM-DD)
 ------------------
-- [ ] Fix side menu on mobile
+- [x] Fix side menu on mobile
 - [x] Explicit link to questions on the landing page
 - [x] Color code the scores
 - [x] Add advice based on the scores

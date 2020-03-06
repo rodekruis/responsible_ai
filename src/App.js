@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Score from "./score/Score";
 import "bulma";
-import "./app.css";
+import "./app.scss";
 
 import * as jsPDF from "jspdf";
 import "jspdf-autotable";
@@ -353,19 +354,15 @@ export default class App extends React.Component {
                         <p className="title">F.A.C.T. Score</p>
                     </div>
                 </div>
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="title">{this.calculate_score()}%</p>
-                    </div>
-                </div>
-                <div className="level-item has-text-centered">
+                <Score score_value={this.calculate_score()} />
+                <div
+                    className="level-item has-text-centered download-report-interaction"
+                    onClick={() => this.toggle_report_modal(true)}
+                >
                     <div>
                         <p className="heading">Download</p>
                         <p className="title">
-                            <span
-                                className="icon"
-                                onClick={() => this.toggle_report_modal(true)}
-                            >
+                            <span className="icon">
                                 <i className="fas fa-file-download"></i>
                             </span>
                         </p>
@@ -378,39 +375,31 @@ export default class App extends React.Component {
     load_metric_scoreboard(component) {
         return (
             <nav className="level">
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Fairness</p>
-                        <p className="title">
-                            {this.calculate_score("fairness", component)}%
-                        </p>
-                    </div>
-                </div>
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Accountability</p>
-                        <p className="title">
-                            {this.calculate_score("accountability", component)}%
-                        </p>
-                    </div>
-                </div>
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Confidentiality</p>
-                        <p className="title">
-                            {this.calculate_score("confidentiality", component)}
-                            %
-                        </p>
-                    </div>
-                </div>
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Transparency</p>
-                        <p className="title">
-                            {this.calculate_score("transparency", component)}%
-                        </p>
-                    </div>
-                </div>
+                <Score
+                    label="Fairness"
+                    score_value={this.calculate_score("fairness", component)}
+                />
+                <Score
+                    label="Accountability"
+                    score_value={this.calculate_score(
+                        "accountability",
+                        component
+                    )}
+                />
+                <Score
+                    label="Confidentiality"
+                    score_value={this.calculate_score(
+                        "confidentiality",
+                        component
+                    )}
+                />
+                <Score
+                    label="Transparency"
+                    score_value={this.calculate_score(
+                        "transparency",
+                        component
+                    )}
+                />
             </nav>
         );
     }
@@ -418,30 +407,18 @@ export default class App extends React.Component {
     load_component_scoreboard() {
         return (
             <nav className="level">
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Data</p>
-                        <p className="title">
-                            {this.calculate_score(null, "data")}%
-                        </p>
-                    </div>
-                </div>
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Model</p>
-                        <p className="title">
-                            {this.calculate_score(null, "model")}%
-                        </p>
-                    </div>
-                </div>
-                <div className="level-item has-text-centered">
-                    <div>
-                        <p className="heading">Deploy</p>
-                        <p className="title">
-                            {this.calculate_score(null, "deploy")}%
-                        </p>
-                    </div>
-                </div>
+                <Score
+                    label="Data"
+                    score_value={this.calculate_score(null, "data")}
+                />
+                <Score
+                    label="Model"
+                    score_value={this.calculate_score(null, "model")}
+                />
+                <Score
+                    label="Deploy"
+                    score_value={this.calculate_score(null, "deploy")}
+                />
             </nav>
         );
     }

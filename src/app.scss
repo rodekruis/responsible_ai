@@ -40,6 +40,17 @@
     margin-right: 2rem;
 }
 
+.download-report-interaction {
+    cursor: pointer;
+
+    &:hover {
+        &,
+        & .icon {
+            color: #00d1b2;
+        }
+    }
+}
+
 @media screen and (min-width: 1025px) {
     .navbar-item.is-hoverable:hover .navbar-dropdown {
         display: block !important;

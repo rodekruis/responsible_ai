@@ -1,6 +1,6 @@
 {
     "name": "responsible_ai",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Estimate the responsibility of your A.I. project in terms of fairness, accountability, confidentiality and transparency.",
     "repository": {
         "type": "git",
@@ -25,11 +25,14 @@
         "@testing-library/react": "^9.4.1",
         "@testing-library/user-event": "^7.2.1",
         "bulma": "^0.8.0",
+        "bulma-tooltip": "^3.0.2",
+        "image-map-resizer": "^1.0.10",
         "jspdf": "^1.5.3",
         "jspdf-autotable": "^3.2.13",
         "node-sass": "^4.13.1",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
+        "react-image": "^2.4.0",
         "react-router-dom": "^5.1.2",
         "react-scripts": "3.4.0"
     },

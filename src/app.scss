@@ -1,4 +1,5 @@
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css";
 
 .router-content {
     min-height: 550px;
@@ -38,6 +39,27 @@
 .field-body {
     flex-grow: 0;
     margin-right: 2rem;
+}
+
+.download-report-interaction {
+    cursor: pointer;
+
+    &:hover {
+        &,
+        & .icon {
+            color: #00d1b2;
+        }
+    }
+}
+
+.badge-interaction {
+    cursor: pointer;
+
+    &:hover {
+        .heading {
+            color: #00d1b2;
+        }
+    }
 }
 
 @media screen and (min-width: 1025px) {

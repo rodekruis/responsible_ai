@@ -2,7 +2,7 @@
 ------------------
 - [ ] Fix side menu on mobile
 - [ ] Explicit link to questions on the landing page
-- [ ] Color code the scores
+- [x] Color code the scores
 - [ ] Add advice based on the scores
 - [ ] Show github badge with score
 - [ ] Report summary of answers

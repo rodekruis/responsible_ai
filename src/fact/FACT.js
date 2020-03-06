@@ -4,6 +4,7 @@ import Report from "./Report";
 import Badge from "./Badge";
 
 const DEFAULT_ANSWER = "idk";
+const NO_ANSWER = "idk";
 
 const ANSWER_KEY = {
     yes: "Yes",
@@ -95,6 +96,7 @@ export default class FACT extends React.Component {
                     answer_key={ANSWER_KEY}
                     calculate_score={this.calculate_score}
                     questions={this.state.questions}
+                    no_answer={NO_ANSWER}
                 />
                 <Badge score={fact_score} />
             </nav>
@@ -272,6 +274,29 @@ export default class FACT extends React.Component {
         );
     }
 
+    answer_summary(component) {
+        return (
+            <div className="field is-horizontal is-size-4">
+                <div className="field-label"># Answered</div>
+                <div className="field-body">
+                    {
+                        this.state.questions.filter(
+                            question =>
+                                question.component === component &&
+                                question.answer !== NO_ANSWER
+                        ).length
+                    }
+                    /
+                    {
+                        this.state.questions.filter(
+                            question => question.component === component
+                        ).length
+                    }
+                </div>
+            </div>
+        );
+    }
+
     render() {
         return (
             <div>
@@ -295,8 +320,9 @@ export default class FACT extends React.Component {
                               this.state.active_component
                           )
                         : null}
+                    {this.answer_summary(this.state.active_component)}
                     {this.state.active_component
-                        ? this.load_questions(this.state.active_component)
+                        ? this.load_questions()
                         : this.no_active_component()}
                 </div>
             </div>

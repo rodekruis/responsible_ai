@@ -12,16 +12,16 @@ export default class Report extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            show_report_modal: false,
+            show_modal: false,
             project_name: "",
             evaluator_name: "",
             project_comments: "",
         };
     }
 
-    toggle_report_modal(show_modal) {
+    toggle_modal(show_modal) {
         this.setState({
-            show_report_modal: show_modal,
+            show_modal: show_modal,
         });
     }
 
@@ -33,11 +33,11 @@ export default class Report extends React.Component {
         };
     }
 
-    render_report_modal() {
+    render_modal() {
         return (
             <div
                 className={
-                    "modal" + (this.state.show_report_modal ? " is-active" : "")
+                    "modal" + (this.state.show_modal ? " is-active" : "")
                 }
             >
                 <div className="modal-background"></div>
@@ -49,7 +49,7 @@ export default class Report extends React.Component {
                         <button
                             className="delete"
                             aria-label="close"
-                            onClick={() => this.toggle_report_modal(false)}
+                            onClick={() => this.toggle_modal(false)}
                         ></button>
                     </header>
                     <section className="modal-card-body">
@@ -110,7 +110,7 @@ export default class Report extends React.Component {
                     <footer className="modal-card-foot">
                         <button
                             className="button is-primary"
-                            onClick={this.create_report.bind(this)}
+                            onClick={this.create.bind(this)}
                             disabled={
                                 !this.state.project_name ||
                                 !this.state.evaluator_name
@@ -123,7 +123,7 @@ export default class Report extends React.Component {
                         </button>
                         <button
                             className="button"
-                            onClick={() => this.toggle_report_modal(false)}
+                            onClick={() => this.toggle_modal(false)}
                         >
                             Cancel
                         </button>
@@ -133,12 +133,12 @@ export default class Report extends React.Component {
         );
     }
 
-    add_report_title(doc) {
+    add_title(doc) {
         doc.setFontSize(TITLE_FONT_SIZE);
         doc.text("Responsible A.I. Report", 15, 25);
     }
 
-    add_report_project_details(doc) {
+    add_project_details(doc) {
         doc.setFontSize(TEXT_FONT_SIZE);
 
         doc.autoTable({
@@ -161,7 +161,7 @@ export default class Report extends React.Component {
         });
     }
 
-    add_report_timestamp(doc) {
+    add_timestamp(doc) {
         const timestamp = new Date();
         const timestampISOFormat = timestamp.toISOString();
         const timestampReadableFormat = timestamp.toLocaleString("en-GB");
@@ -170,7 +170,7 @@ export default class Report extends React.Component {
         return timestampISOFormat;
     }
 
-    add_report_scores(doc) {
+    add_scores(doc) {
         doc.setFontSize(HEADER_FONT_SIZE);
         doc.text(
             "F.A.C.T. Score: " +
@@ -363,11 +363,33 @@ export default class Report extends React.Component {
         });
     }
 
+    add_answer_summary(doc, component, x, y) {
+        doc.setFontSize(TEXT_FONT_SIZE);
+        doc.text(
+            "Answered " +
+                this.props.questions.filter(
+                    question =>
+                        (question.component === component ||
+                            component === null) &&
+                        question.answer !== this.props.no_answer
+                ).length +
+                " of " +
+                this.props.questions.filter(
+                    question =>
+                        question.component === component || component === null
+                ).length +
+                " questions.",
+            x,
+            y
+        );
+    }
+
     add_component_questions(doc, questions, component, component_name) {
         doc.addPage();
         doc.setFontSize(HEADER_FONT_SIZE);
         doc.text(component_name, 15, 20);
         doc.setFontSize(TEXT_FONT_SIZE);
+        this.add_answer_summary(doc, component, 17, 35);
         let question_table = [];
         questions
             .filter(question => {
@@ -382,27 +404,28 @@ export default class Report extends React.Component {
             });
         const question_table_headers = [["Question", "Answer"]];
         doc.autoTable({
-            margin: { top: 30, left: 15 },
+            margin: { top: 40, left: 15 },
             head: question_table_headers,
             body: question_table,
         });
     }
 
-    add_report_questions(doc, questions) {
+    add_questions(doc, questions) {
         this.add_component_questions(doc, questions, "data", "Data");
         this.add_component_questions(doc, questions, "model", "Model");
         this.add_component_questions(doc, questions, "deploy", "Deploy");
     }
 
-    create_report() {
+    create() {
         const doc = new jsPDF();
-        this.add_report_title(doc);
-        const timestamp = this.add_report_timestamp(doc);
-        this.add_report_project_details(doc);
-        this.add_report_scores(doc);
-        this.add_report_questions(doc, this.props.questions);
+        this.add_title(doc);
+        const timestamp = this.add_timestamp(doc);
+        this.add_project_details(doc);
+        this.add_scores(doc);
+        this.add_answer_summary(doc, null, 17, 250);
+        this.add_questions(doc, this.props.questions);
         doc.save("Responsible-AI-Report-" + timestamp + ".pdf");
-        this.toggle_report_modal(false);
+        this.toggle_modal(false);
     }
 
     render() {
@@ -410,7 +433,7 @@ export default class Report extends React.Component {
             <div className="level-item download-report-interaction">
                 <div
                     className="has-text-centered"
-                    onClick={() => this.toggle_report_modal(true)}
+                    onClick={() => this.toggle_modal(true)}
                 >
                     <div>
                         <p className="heading">Download</p>
@@ -422,7 +445,7 @@ export default class Report extends React.Component {
                     </div>
                 </div>
 
-                {this.render_report_modal()}
+                {this.render_modal()}
             </div>
         );
     }

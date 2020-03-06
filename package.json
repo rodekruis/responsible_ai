@@ -1,6 +1,6 @@
 {
     "name": "responsible_ai",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Estimate the responsibility of your A.I. project in terms of fairness, accountability, confidentiality and transparency.",
     "repository": {
         "type": "git",

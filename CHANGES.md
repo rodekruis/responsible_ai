@@ -1,3 +1,13 @@
+0.3.0 (2020-MM-DD)
+------------------
+- [ ] Fix side menu on mobile
+- [ ] Explicit link to questions on the landing page
+- [ ] Color code the scores
+- [ ] Add advice based on the scores
+- [ ] Show github badge with score
+- [ ] Report summary of answers
+- [ ] Image map the components to the respective tabs
+
 0.2.0 (2020-03-01)
 ------------------
 - Download report

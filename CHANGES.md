@@ -4,7 +4,7 @@
 - [x] Explicit link to questions on the landing page
 - [x] Color code the scores
 - [x] Add advice based on the scores
-- [ ] Show github badge with score
+- [x] Show github badge with score
 - [ ] Report summary of answers
 - [x] Image map the components to the respective tabs
 

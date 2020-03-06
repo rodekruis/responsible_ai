@@ -52,6 +52,16 @@
     }
 }
 
+.badge-interaction {
+    cursor: pointer;
+
+    &:hover {
+        .heading {
+            color: #00d1b2;
+        }
+    }
+}
+
 @media screen and (min-width: 1025px) {
     .navbar-item.is-hoverable:hover .navbar-dropdown {
         display: block !important;

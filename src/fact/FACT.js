@@ -1,6 +1,7 @@
 import React from "react";
 import Score from "./Score";
 import Report from "./Report";
+import Badge from "./Badge";
 
 const DEFAULT_ANSWER = "idk";
 
@@ -81,6 +82,7 @@ export default class FACT extends React.Component {
     }
 
     load_fact_score() {
+        const fact_score = this.calculate_score();
         return (
             <nav className="level">
                 <div className="level-item has-text-centered">
@@ -88,12 +90,13 @@ export default class FACT extends React.Component {
                         <p className="title">F.A.C.T. Score</p>
                     </div>
                 </div>
-                <Score score_value={this.calculate_score()} />
+                <Score score_value={fact_score} />
                 <Report
                     answer_key={ANSWER_KEY}
                     calculate_score={this.calculate_score}
                     questions={this.state.questions}
                 />
+                <Badge score={fact_score} />
             </nav>
         );
     }

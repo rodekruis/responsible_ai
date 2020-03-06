@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Need from "./need/Need";
 import Score from "./score/Score";
 import Report from "./report/Report";
 import "bulma";
 import "./app.scss";
 
-const DEFAULT_ANSWER = "yes";
+const DEFAULT_ANSWER = "idk";
 
 const ANSWER_KEY = {
     yes: "Yes",
@@ -18,7 +19,9 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             questions: [],
-            active_component: "data",
+            active_component: window.location.hash
+                ? window.location.hash.substr(1)
+                : "data",
         };
     }
 
@@ -110,7 +113,7 @@ export default class App extends React.Component {
                             }
                         >
                             <a
-                                href="#/"
+                                href="#data"
                                 onClick={this.set_active_component("data")}
                             >
                                 <span>Data</span>
@@ -124,7 +127,7 @@ export default class App extends React.Component {
                             }
                         >
                             <a
-                                href="#/"
+                                href="#model"
                                 onClick={this.set_active_component("model")}
                             >
                                 <span>Model</span>
@@ -138,7 +141,7 @@ export default class App extends React.Component {
                             }
                         >
                             <a
-                                href="#/"
+                                href="#deploy"
                                 onClick={this.set_active_component("deploy")}
                             >
                                 <span>Deploy</span>
@@ -287,55 +290,6 @@ export default class App extends React.Component {
                     score_value={this.calculate_score(null, "deploy")}
                 />
             </nav>
-        );
-    }
-
-    render_need_for_responsible_ai() {
-        return (
-            <div>
-                <section className="hero">
-                    <div className="hero-body">
-                        <div className="container">
-                            <h1 className="title">
-                                The Need for Responsible A.I.
-                            </h1>
-                        </div>
-                    </div>
-                </section>
-                <div className="container">
-                    <img
-                        className="blame-image"
-                        alt="Who is to blame when an A.I. decision goes bad?"
-                        src="blame.png"
-                    />
-                    <div className="has-text-centered">
-                        <a href="http://www.drawingsofdogs.co.uk/">
-                            <small>Image Source: Drawings of Dogs</small>
-                        </a>
-                    </div>
-                    <br />
-                    <p>
-                        Artificial Intelligence or A.I. encompasses a wide range
-                        of fields and methods. Formulating a consistent
-                        definition for A.I. remains evasive yet we attempt to
-                        draw a framework to measure ethical practices. In order
-                        to cast a wide net across the range of A.I. topics and
-                        remain tangible in practical solutions, we rely on high
-                        level abstractions of the involved components.
-                    </p>
-                    <img
-                        className="components-image"
-                        alt="Components of an A.I. project - Data, Model and Deploy"
-                        src="components.png"
-                    />
-                    <p>
-                        Any system can be modelled using input-process-output
-                        with reasonable encapsulation of the concepts.
-                        Similarly, an A.I. system can be represented using a
-                        data-model-deploy pipeline.
-                    </p>
-                </div>
-            </div>
         );
     }
 
@@ -682,7 +636,7 @@ export default class App extends React.Component {
                                 {this.render_feedback()}
                             </Route>
                             <Route path="/">
-                                {this.render_need_for_responsible_ai()}
+                                <Need />
                             </Route>
                         </Switch>
                     </div>

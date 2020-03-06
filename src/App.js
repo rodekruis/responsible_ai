@@ -4,6 +4,7 @@ import Need from "./need/Need";
 import Glossary from "./glossary/Glossary";
 import Score from "./score/Score";
 import Report from "./report/Report";
+import Footer from "./footer/Footer";
 import "bulma";
 import "./app.scss";
 
@@ -382,24 +383,6 @@ export default class App extends React.Component {
         return Math.max(0, Math.round(100 * (numerator / denominator)));
     }
 
-    render_footer() {
-        return (
-            <footer className="footer">
-                <div className="content has-text-centered">
-                    <p>
-                        <strong>Responsible A.I.</strong> by{" "}
-                        <a href="https://www.510.global/">510.global</a> under
-                        the{" "}
-                        <a href="https://github.com/gulfaraz/responsible_ai/blob/master/LICENSE">
-                            GPL-3.0 license
-                        </a>
-                        .
-                    </p>
-                </div>
-            </footer>
-        );
-    }
-
     render() {
         return (
             <div className="responsible-ai">
@@ -422,7 +405,7 @@ export default class App extends React.Component {
                         </Switch>
                     </div>
                 </Router>
-                {this.render_footer()}
+                <Footer />
             </div>
         );
     }

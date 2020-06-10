@@ -92,7 +92,15 @@ export default class FACT extends React.Component {
                         <p className="title">F.A.C.T. Score</p>
                     </div>
                 </div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
                 <Score score_value={fact_score} />
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
                 <Report
                     answer_key={ANSWER_KEY}
                     calculate_score={this.calculate_score}
@@ -304,12 +312,24 @@ export default class FACT extends React.Component {
                 <section className="hero">
                     <div className="hero-body">
                         <div className="container">
-                            <h1 className="title">Calculate F.A.C.T. Score</h1>
-                            <h1 className="subtitle">
-                                Our scores reflect fairness, accountability,
-                                confidentiality and transparency in your A.I.
-                                project.
-                            </h1>
+                            <nav className="level">
+                                <div className="level-item">
+                                    <div>
+                                        <h1 className="title">
+                                            Calculate F.A.C.T. Score
+                                        </h1>
+                                        <br />
+                                        <h1 className="subtitle">
+                                            Our scores reflect fairness,
+                                            accountability, confidentiality and
+                                            transparency in your A.I. project.
+                                        </h1>
+                                    </div>
+                                </div>
+                                <Score label="legend" score_value=">70" />
+                                <Score label="legend" score_value="30-70" />
+                                <Score label="legend" score_value="<30" />
+                            </nav>
                         </div>
                     </div>
                 </section>

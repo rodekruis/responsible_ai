@@ -15,17 +15,21 @@ export default class Score extends React.Component {
     }
 
     color_class() {
-        return this.props.score_value < this.state.danger_threshold
+        return this.props.score_value < this.state.danger_threshold ||
+            this.props.score_value === "<30"
             ? "has-background-danger"
-            : this.props.score_value > this.state.success_threshold
+            : this.props.score_value > this.state.success_threshold ||
+              this.props.score_value === ">70"
             ? "has-background-success"
             : "has-background-warning";
     }
 
     advice() {
-        return this.props.score_value < this.state.danger_threshold
+        return this.props.score_value < this.state.danger_threshold ||
+            this.props.score_value === "<30"
             ? "More Yes answers"
-            : this.props.score_value > this.state.success_threshold
+            : this.props.score_value > this.state.success_threshold ||
+              this.props.score_value === ">70"
             ? "Doing great!"
             : "Getting there";
     }
@@ -35,12 +39,22 @@ export default class Score extends React.Component {
             <div className="level-item has-text-centered">
                 <div
                     className="has-tooltip-bottom"
-                    data-tooltip={this.advice()}
+                    data-tooltip={
+                        this.props.label === "legend"
+                            ? "What do the colours mean?"
+                            : this.advice()
+                    }
                 >
                     {this.props.label ? (
-                        <p className="heading round-score-heading has-text-white">
-                            {this.props.label}
-                        </p>
+                        this.props.label === "legend" ? (
+                            <p className="heading round-score-heading has-text-white">
+                                {this.advice()}
+                            </p>
+                        ) : (
+                            <p className="heading round-score-heading has-text-white">
+                                {this.props.label}
+                            </p>
+                        )
                     ) : (
                         <p className="heading round-score-heading has-text-white">
                             Overall

@@ -320,7 +320,7 @@ export default class FACT extends React.Component {
                                         </h1>
                                         <br />
                                         <h1 className="subtitle">
-                                            Our scores reflect fairness,
+                                            Your scores reflect fairness,
                                             accountability, confidentiality and
                                             transparency in your A.I. project.
                                         </h1>

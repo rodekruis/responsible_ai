@@ -6,7 +6,6 @@ import FACT from "./fact/FACT";
 import Glossary from "./glossary/Glossary";
 import Feedback from "./feedback/Feedback";
 import Footer from "./footer/Footer";
-import "bulma";
 import "./app.scss";
 
 export default class App extends React.Component {

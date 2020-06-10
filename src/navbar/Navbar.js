@@ -68,7 +68,6 @@ export default class Navbar extends React.Component {
                                 <Link className="navbar-item" to="/glossary">
                                     Glossary
                                 </Link>
-                                <hr className="navbar-divider" />
                                 <Link className="navbar-item" to="/feedback">
                                     Feedback
                                 </Link>

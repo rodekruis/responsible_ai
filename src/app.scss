@@ -1,15 +1,14 @@
+@import "510.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css";
+
+html {
+    background: $white-ter;
+}
 
 .router-content {
     min-height: 550px;
     margin-bottom: 30px;
-}
-
-.blame-image {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
 }
 
 .components-image {
@@ -47,7 +46,7 @@
     &:hover {
         &,
         & .icon {
-            color: #00d1b2;
+            color: $primary;
         }
     }
 }
@@ -57,7 +56,7 @@
 
     &:hover {
         .heading {
-            color: #00d1b2;
+            color: $primary;
         }
     }
 }

@@ -17,9 +17,10 @@ export default class FACT extends React.Component {
         super(props);
         this.state = {
             questions: [],
-            active_component: window.location.hash
-                ? window.location.hash.substr(7)
-                : "data",
+            active_component:
+                window.location.hash.length > 7
+                    ? window.location.hash.substr(7)
+                    : "data",
         };
     }
 

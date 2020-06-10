@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+@import "../node_modules/bulma/sass/utilities/initial-variables.sass";
+
+$red: #de656b;
+$green: #92d050;
+$orange: #ffc000;
+
+$primary: #4c8294;
+
+$background: $white-ter;
+$scheme-main: $white-ter;
+$scheme-main-bis: $white-ter;
+
+@import "../node_modules/bulma/bulma.sass";

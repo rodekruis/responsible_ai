@@ -1,10 +1,10 @@
-1.0.0 (2020-06-DD)
+1.0.0 (2020-06-11)
 ------------------
-- [x] Add github pages
-- [x] Use 510 colors
-- [ ] Add circles around numbers
-- [x] Use images with 'gravitas'
-- [ ] Commit docs to github
+- Add github pages
+- Use 510 colors
+- Add circles around numbers
+- Use images with 'gravitas'
+- Commit docs to github
 
 0.3.0 (2020-03-06)
 ------------------

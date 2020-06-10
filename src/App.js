@@ -1,12 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
 import Need from "./need/Need";
 import FACT from "./fact/FACT";
 import Glossary from "./glossary/Glossary";
 import Feedback from "./feedback/Feedback";
 import Footer from "./footer/Footer";
-import "bulma";
 import "./app.scss";
 
 export default class App extends React.Component {
@@ -26,7 +25,7 @@ export default class App extends React.Component {
                             <Route path="/feedback">
                                 <Feedback />
                             </Route>
-                            <Route path="/">
+                            <Route exact path="/">
                                 <Need />
                             </Route>
                         </Switch>

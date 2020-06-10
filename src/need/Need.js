@@ -43,17 +43,6 @@ export default class Need extends React.Component {
                     </div>
                 </section>
                 <div className="container">
-                    <img
-                        className="blame-image"
-                        alt="Who is to blame when an A.I. decision goes bad?"
-                        src="blame.png"
-                    />
-                    <div className="has-text-centered">
-                        <a href="http://www.drawingsofdogs.co.uk/">
-                            <small>Image Source: Drawings of Dogs</small>
-                        </a>
-                    </div>
-                    <br />
                     <p>
                         Artificial Intelligence or A.I. encompasses a wide range
                         of fields and methods. Formulating a consistent
@@ -72,21 +61,21 @@ export default class Need extends React.Component {
                     <map name="component-image-map">
                         <area
                             shape="rect"
-                            coords="63, 83, 460, 325"
+                            coords="100, 70, 458, 430"
                             alt="Data"
-                            href="/fact#data"
+                            href="#/fact/data"
                         />
                         <area
                             shape="rect"
-                            coords="740, 83, 1135, 325"
+                            coords="565, 70, 923, 430"
                             alt="Model"
-                            href="/fact#model"
+                            href="#/fact/model"
                         />
                         <area
                             shape="rect"
-                            coords="1415, 83, 1810, 325"
+                            coords="1030, 70, 1388, 430"
                             alt="Deploy"
-                            href="/fact#deploy"
+                            href="#/fact/deploy"
                         />
                     </map>
                     <p>

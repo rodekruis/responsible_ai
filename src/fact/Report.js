@@ -432,7 +432,7 @@ export default class Report extends React.Component {
         return (
             <div className="level-item download-report-interaction">
                 <div
-                    className="has-text-centered"
+                    className="has-text-centered round-interaction"
                     onClick={() => this.toggle_modal(true)}
                 >
                     <div>

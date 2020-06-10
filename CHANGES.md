@@ -1,3 +1,11 @@
+1.0.0 (2020-06-11)
+------------------
+- Add github pages
+- Use 510 colors
+- Add circles around numbers
+- Use images with 'gravitas'
+- Commit docs to github
+
 0.3.0 (2020-03-06)
 ------------------
 - Fix side menu on mobile

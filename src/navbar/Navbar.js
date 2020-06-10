@@ -25,7 +25,7 @@ export default class Navbar extends React.Component {
                 <div className="navbar-brand">
                     <a className="navbar-item" href="https://www.510.global/">
                         <img
-                            src="/510-logo.png"
+                            src="510-logo.png"
                             alt="www.510.global"
                             width="74"
                             height="24.75"
@@ -68,7 +68,6 @@ export default class Navbar extends React.Component {
                                 <Link className="navbar-item" to="/glossary">
                                     Glossary
                                 </Link>
-                                <hr className="navbar-divider" />
                                 <Link className="navbar-item" to="/feedback">
                                     Feedback
                                 </Link>

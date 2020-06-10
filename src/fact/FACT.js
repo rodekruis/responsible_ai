@@ -17,9 +17,10 @@ export default class FACT extends React.Component {
         super(props);
         this.state = {
             questions: [],
-            active_component: window.location.hash
-                ? window.location.hash.substr(1)
-                : "data",
+            active_component:
+                window.location.hash.length > 7
+                    ? window.location.hash.substr(7)
+                    : "data",
         };
     }
 
@@ -76,8 +77,8 @@ export default class FACT extends React.Component {
         return (
             <div>
                 {this.load_fact_score()}
-                {this.load_component_scoreboard()}
                 {this.load_metric_scoreboard()}
+                {this.load_component_scoreboard()}
             </div>
         );
     }
@@ -91,7 +92,15 @@ export default class FACT extends React.Component {
                         <p className="title">F.A.C.T. Score</p>
                     </div>
                 </div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
                 <Score score_value={fact_score} />
+                <div className="level-item"></div>
+                <div className="level-item"></div>
+                <div className="level-item"></div>
                 <Report
                     answer_key={ANSWER_KEY}
                     calculate_score={this.calculate_score}
@@ -173,7 +182,7 @@ export default class FACT extends React.Component {
                             }
                         >
                             <a
-                                href="#data"
+                                href="#/fact/data"
                                 onClick={this.set_active_component("data")}
                             >
                                 <span>Data</span>
@@ -187,7 +196,7 @@ export default class FACT extends React.Component {
                             }
                         >
                             <a
-                                href="#model"
+                                href="#/fact/model"
                                 onClick={this.set_active_component("model")}
                             >
                                 <span>Model</span>
@@ -201,7 +210,7 @@ export default class FACT extends React.Component {
                             }
                         >
                             <a
-                                href="#deploy"
+                                href="#/fact/deploy"
                                 onClick={this.set_active_component("deploy")}
                             >
                                 <span>Deploy</span>
@@ -303,12 +312,24 @@ export default class FACT extends React.Component {
                 <section className="hero">
                     <div className="hero-body">
                         <div className="container">
-                            <h1 className="title">Calculate F.A.C.T. Score</h1>
-                            <h1 className="subtitle">
-                                Our scores reflect fairness, accountability,
-                                confidentiality and transparency in your A.I.
-                                project.
-                            </h1>
+                            <nav className="level">
+                                <div className="level-item">
+                                    <div>
+                                        <h1 className="title">
+                                            Calculate F.A.C.T. Score
+                                        </h1>
+                                        <br />
+                                        <h1 className="subtitle">
+                                            Your scores reflect fairness,
+                                            accountability, confidentiality and
+                                            transparency in your A.I. project.
+                                        </h1>
+                                    </div>
+                                </div>
+                                <Score label="legend" score_value=">70" />
+                                <Score label="legend" score_value="30-70" />
+                                <Score label="legend" score_value="<30" />
+                            </nav>
                         </div>
                     </div>
                 </section>

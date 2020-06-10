@@ -1,15 +1,14 @@
+@import "510.scss";
 @import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../node_modules/bulma-tooltip/dist/css/bulma-tooltip.min.css";
+
+html {
+    background: $light-grey;
+}
 
 .router-content {
     min-height: 550px;
     margin-bottom: 30px;
-}
-
-.blame-image {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
 }
 
 .components-image {
@@ -41,13 +40,21 @@
     margin-right: 2rem;
 }
 
+.round-interaction {
+    height: 128px;
+    width: 128px;
+    background: $white;
+    border-radius: 290486px;
+    padding-top: 32px;
+}
+
 .download-report-interaction {
     cursor: pointer;
 
     &:hover {
         &,
         & .icon {
-            color: #00d1b2;
+            color: $primary;
         }
     }
 }
@@ -55,11 +62,29 @@
 .badge-interaction {
     cursor: pointer;
 
+    .title {
+        width: 80%;
+        margin: 12px auto;
+    }
+
     &:hover {
         .heading {
-            color: #00d1b2;
+            color: $primary;
         }
     }
+}
+
+.round-score {
+    height: 128px;
+    width: 128px;
+    line-height: 110px;
+    border-radius: 290486px;
+}
+
+.round-score-heading {
+    position: absolute;
+    width: 100%;
+    top: 75px;
 }
 
 @media screen and (min-width: 1025px) {

@@ -1,6 +1,6 @@
 {
     "name": "responsible_ai",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "description": "Estimate the responsibility of your A.I. project in terms of fairness, accountability, confidentiality and transparency.",
     "repository": {
         "type": "git",
@@ -14,6 +14,7 @@
         "intelligence"
     ],
     "author": "Gulfaraz Rahman",
+    "homepage": "https://rodekruis.github.io/responsible_ai",
     "license": "GPL-3.0",
     "bugs": {
         "url": "https://github.com/gulfaraz/responsible_ai/issues"
@@ -41,7 +42,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "prettier": "prettier --write \"**/*.{js,css,html,json}\" --ignore-path ./.prettierignore"
+        "prettier": "prettier --write \"**/*.{js,css,html,json}\" --ignore-path ./.prettierignore",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "husky": {
         "hooks": {
@@ -70,6 +73,7 @@
         ]
     },
     "devDependencies": {
+        "gh-pages": "^3.0.0",
         "husky": "^4.2.3",
         "lint-staged": "^10.0.8",
         "prettier": "^1.19.1"

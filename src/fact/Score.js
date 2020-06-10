@@ -27,7 +27,7 @@ export default class Score extends React.Component {
     advice() {
         return this.props.score_value < this.state.danger_threshold ||
             this.props.score_value === "<30"
-            ? "More Yes answers"
+            ? "Keep going"
             : this.props.score_value > this.state.success_threshold ||
               this.props.score_value === ">70"
             ? "Doing great!"

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
 import Need from "./need/Need";
 import FACT from "./fact/FACT";
@@ -26,7 +26,7 @@ export default class App extends React.Component {
                             <Route path="/feedback">
                                 <Feedback />
                             </Route>
-                            <Route path="/">
+                            <Route exact path="/">
                                 <Need />
                             </Route>
                         </Switch>

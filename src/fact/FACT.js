@@ -18,7 +18,7 @@ export default class FACT extends React.Component {
         this.state = {
             questions: [],
             active_component: window.location.hash
-                ? window.location.hash.substr(1)
+                ? window.location.hash.substr(7)
                 : "data",
         };
     }
@@ -173,7 +173,7 @@ export default class FACT extends React.Component {
                             }
                         >
                             <a
-                                href="#data"
+                                href="#/fact/data"
                                 onClick={this.set_active_component("data")}
                             >
                                 <span>Data</span>
@@ -187,7 +187,7 @@ export default class FACT extends React.Component {
                             }
                         >
                             <a
-                                href="#model"
+                                href="#/fact/model"
                                 onClick={this.set_active_component("model")}
                             >
                                 <span>Model</span>
@@ -201,7 +201,7 @@ export default class FACT extends React.Component {
                             }
                         >
                             <a
-                                href="#deploy"
+                                href="#/fact/deploy"
                                 onClick={this.set_active_component("deploy")}
                             >
                                 <span>Deploy</span>

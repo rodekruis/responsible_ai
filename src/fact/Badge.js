@@ -19,7 +19,10 @@ export default class Badge extends React.Component {
             ".svg?style=flat-square";
         return (
             <div className="level-item has-text-centered badge-interaction">
-                <a className="has-text-black" href={badge_url}>
+                <a
+                    className="has-text-black round-interaction"
+                    href={badge_url}
+                >
                     <p className="heading">Badge</p>
                     <p className="title">
                         <Img

@@ -40,6 +40,14 @@ html {
     margin-right: 2rem;
 }
 
+.round-interaction {
+    height: 128px;
+    width: 128px;
+    background: $white;
+    border-radius: 290486px;
+    padding-top: 32px;
+}
+
 .download-report-interaction {
     cursor: pointer;
 
@@ -53,6 +61,11 @@ html {
 
 .badge-interaction {
     cursor: pointer;
+
+    .title {
+        width: 80%;
+        margin: 12px auto;
+    }
 
     &:hover {
         .heading {

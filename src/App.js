@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./navbar/Navbar";
 import Need from "./need/Need";
 import FACT from "./fact/FACT";
@@ -13,7 +13,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="responsible-ai">
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <div className="router-content">
                         <Navbar />
                         <Switch>

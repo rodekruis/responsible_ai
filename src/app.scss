@@ -61,6 +61,19 @@ html {
     }
 }
 
+.round-score {
+    height: 128px;
+    width: 128px;
+    line-height: 110px;
+    border-radius: 290486px;
+}
+
+.round-score-heading {
+    position: absolute;
+    width: 100%;
+    top: 75px;
+}
+
 @media screen and (min-width: 1025px) {
     .navbar-item.is-hoverable:hover .navbar-dropdown {
         display: block !important;

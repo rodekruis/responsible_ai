@@ -77,8 +77,8 @@ export default class FACT extends React.Component {
         return (
             <div>
                 {this.load_fact_score()}
-                {this.load_component_scoreboard()}
                 {this.load_metric_scoreboard()}
+                {this.load_component_scoreboard()}
             </div>
         );
     }

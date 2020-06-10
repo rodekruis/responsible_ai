@@ -16,18 +16,18 @@ export default class Score extends React.Component {
 
     color_class() {
         return this.props.score_value < this.state.danger_threshold
-            ? "has-text-danger"
+            ? "has-background-danger"
             : this.props.score_value > this.state.success_threshold
-            ? "has-text-success"
-            : "";
+            ? "has-background-success"
+            : "has-background-warning";
     }
 
     advice() {
         return this.props.score_value < this.state.danger_threshold
-            ? "Try to get more 'Yes' answers to improve your score."
+            ? "More Yes answers"
             : this.props.score_value > this.state.success_threshold
-            ? "You're doing great!"
-            : "Try to get more 'Yes' answers to improve your score.";
+            ? "Doing great!"
+            : "Getting there";
     }
 
     render() {
@@ -38,9 +38,20 @@ export default class Score extends React.Component {
                     data-tooltip={this.advice()}
                 >
                     {this.props.label ? (
-                        <p className="heading">{this.props.label}</p>
-                    ) : null}
-                    <p className={"title " + this.color_class()}>
+                        <p className="heading round-score-heading has-text-white">
+                            {this.props.label}
+                        </p>
+                    ) : (
+                        <p className="heading round-score-heading has-text-white">
+                            Overall
+                        </p>
+                    )}
+                    <p
+                        className={
+                            "round-score title has-text-white " +
+                            this.color_class()
+                        }
+                    >
                         {this.props.score_value}%
                     </p>
                 </div>

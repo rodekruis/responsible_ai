@@ -54,21 +54,40 @@ export default class Navbar extends React.Component {
                 >
                     <div className="navbar-start">
                         <div className="navbar-item has-dropdown is-hoverable">
-                            <span className="navbar-link">
+                            <span
+                                className="navbar-link"
+                                onClick={this.toggle_side_menu}
+                            >
                                 Responsible A.I.
                             </span>
 
                             <div className="navbar-dropdown">
-                                <Link className="navbar-item" to="/">
+                                <Link
+                                    className="navbar-item"
+                                    to="/"
+                                    onClick={this.toggle_side_menu}
+                                >
                                     The Need for Responsible A.I.
                                 </Link>
-                                <Link className="navbar-item" to="/fact">
+                                <Link
+                                    className="navbar-item"
+                                    to="/fact"
+                                    onClick={this.toggle_side_menu}
+                                >
                                     Calculate F.A.C.T. Score
                                 </Link>
-                                <Link className="navbar-item" to="/glossary">
+                                <Link
+                                    className="navbar-item"
+                                    to="/glossary"
+                                    onClick={this.toggle_side_menu}
+                                >
                                     Glossary
                                 </Link>
-                                <Link className="navbar-item" to="/feedback">
+                                <Link
+                                    className="navbar-item"
+                                    to="/feedback"
+                                    onClick={this.toggle_side_menu}
+                                >
                                     Feedback
                                 </Link>
                             </div>

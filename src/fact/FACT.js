@@ -92,29 +92,33 @@ export default class FACT extends React.Component {
                         <p className="title">F.A.C.T. Score</p>
                     </div>
                 </div>
-                <div className="level-item"></div>
-                <div className="level-item"></div>
-                <div className="level-item"></div>
-                <div className="level-item"></div>
-                <div className="level-item"></div>
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item is-hidden-mobile"></div>
                 <Score score_value={fact_score} />
-                <div className="level-item"></div>
-                <div className="level-item"></div>
-                <div className="level-item"></div>
-                <Report
-                    answer_key={ANSWER_KEY}
-                    calculate_score={this.calculate_score}
-                    questions={this.state.questions}
-                    no_answer={NO_ANSWER}
-                />
-                <Badge score={fact_score} />
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item is-hidden-mobile"></div>
+                <div className="level-item">
+                    <nav className="level is-mobile margin-0">
+                        <Report
+                            answer_key={ANSWER_KEY}
+                            calculate_score={this.calculate_score}
+                            questions={this.state.questions}
+                            no_answer={NO_ANSWER}
+                        />
+                        <Badge score={fact_score} />
+                    </nav>
+                </div>
             </nav>
         );
     }
 
     load_component_scoreboard() {
         return (
-            <nav className="level">
+            <nav className="level is-mobile">
                 <Score
                     label="Data"
                     score_value={this.calculate_score(null, "data")}
@@ -134,31 +138,66 @@ export default class FACT extends React.Component {
     load_metric_scoreboard(component) {
         return (
             <nav className="level">
-                <Score
-                    label="Fairness"
-                    score_value={this.calculate_score("fairness", component)}
-                />
-                <Score
-                    label="Accountability"
-                    score_value={this.calculate_score(
-                        "accountability",
-                        component
-                    )}
-                />
-                <Score
-                    label="Confidentiality"
-                    score_value={this.calculate_score(
-                        "confidentiality",
-                        component
-                    )}
-                />
-                <Score
-                    label="Transparency"
-                    score_value={this.calculate_score(
-                        "transparency",
-                        component
-                    )}
-                />
+                <div className="level-item margin-0">
+                    <nav className="level is-mobile margin-1">
+                        <Score
+                            label="Fairness"
+                            score_value={this.calculate_score(
+                                "fairness",
+                                component
+                            )}
+                        />
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <Score
+                            label="Accountability"
+                            score_value={this.calculate_score(
+                                "accountability",
+                                component
+                            )}
+                        />
+                    </nav>
+                </div>
+                <div className="level-item margin-0">
+                    <nav className="level is-mobile margin-1">
+                        <Score
+                            label="Confidentiality"
+                            score_value={this.calculate_score(
+                                "confidentiality",
+                                component
+                            )}
+                        />
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <div className="level-item is-hidden-mobile"></div>
+                        <Score
+                            label="Transparency"
+                            score_value={this.calculate_score(
+                                "transparency",
+                                component
+                            )}
+                        />
+                    </nav>
+                </div>
             </nav>
         );
     }
@@ -243,7 +282,7 @@ export default class FACT extends React.Component {
                 }
             >
                 <div className="field-label is-size-4">{item.question}</div>
-                <div className="field-body">
+                <div className="field-body has-text-centered">
                     <div className="select">
                         <select
                             value={item.answer}
@@ -286,8 +325,8 @@ export default class FACT extends React.Component {
     answer_summary(component) {
         return (
             <div className="field is-horizontal is-size-4">
-                <div className="field-label"># Answered</div>
-                <div className="field-body">
+                <div className="field-label horizontal-mobile"># Answered</div>
+                <div className="field-body horizontal-mobile has-text-right">
                     {
                         this.state.questions.filter(
                             question =>
@@ -326,9 +365,22 @@ export default class FACT extends React.Component {
                                         </h1>
                                     </div>
                                 </div>
-                                <Score label="legend" score_value=">70" />
-                                <Score label="legend" score_value="30-70" />
-                                <Score label="legend" score_value="<30" />
+                                <div className="level-item">
+                                    <nav className="level is-mobile margin-0">
+                                        <Score
+                                            label="legend"
+                                            score_value=">70"
+                                        />
+                                        <Score
+                                            label="legend"
+                                            score_value="30-70"
+                                        />
+                                        <Score
+                                            label="legend"
+                                            score_value="<30"
+                                        />
+                                    </nav>
+                                </div>
                             </nav>
                         </div>
                     </div>

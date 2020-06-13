@@ -13,8 +13,15 @@ html {
 
 .components-image {
     width: 50%;
-    margin: 30px auto;
+    margin: 30px auto 0 auto;
     display: block;
+}
+
+.components-image-caption {
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+    font-style: italic;
 }
 
 .term-column-header {
@@ -41,11 +48,15 @@ html {
 }
 
 .round-interaction {
-    height: 128px;
-    width: 128px;
+    height: 84px;
+    width: 84px;
     background: $white;
     border-radius: 290486px;
-    padding-top: 32px;
+    padding-top: 16px;
+
+    .heading {
+        font-size: 10px;
+    }
 }
 
 .download-report-interaction {
@@ -75,23 +86,88 @@ html {
 }
 
 .round-score {
-    height: 128px;
-    width: 128px;
-    line-height: 110px;
+    height: 84px;
+    width: 84px;
+    line-height: 64px;
     border-radius: 290486px;
+    font-size: 1.5rem;
 }
 
 .round-score-heading {
     position: absolute;
-    width: 100%;
-    top: 75px;
+    width: 80%;
+    top: 45px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    left: 10%;
 }
 
-@media screen and (min-width: 1025px) {
+.legend {
+    .round-score {
+        height: 84px;
+        width: 84px;
+        line-height: 45px;
+        font-size: 1rem;
+    }
+
+    .round-score-heading {
+        top: 35px;
+    }
+}
+
+.margin-0 {
+    margin: 0 !important;
+}
+
+.margin-1 {
+    margin: 0.5rem !important;
+}
+
+.fact {
+    .round-score {
+        height: 128px;
+        width: 128px;
+        line-height: 110px;
+        font-size: 2rem;
+    }
+
+    .round-score-heading {
+        top: 75px;
+    }
+}
+
+.horizontal-mobile {
+    width: 40%;
+    display: inline-block;
+}
+
+@media screen and (min-width: 700px) {
     .navbar-item.is-hoverable:hover .navbar-dropdown {
         display: block !important;
     }
     .navbar-item.is-hoverable:focus-within .navbar-dropdown {
         display: none;
+    }
+
+    .round-score {
+        height: 128px;
+        width: 128px;
+        line-height: 110px;
+        font-size: 2rem;
+    }
+
+    .round-score-heading {
+        top: 75px;
+    }
+
+    .round-interaction {
+        height: 128px;
+        width: 128px;
+        padding-top: 32px;
+
+        .heading {
+            font-size: 11px;
+        }
     }
 }

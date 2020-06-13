@@ -58,6 +58,9 @@ export default class Need extends React.Component {
                         src="components.png"
                         useMap="#component-image-map"
                     />
+                    <label className="components-image-caption">
+                        Click on the component circle to answer its questions.
+                    </label>
                     <map name="component-image-map">
                         <area
                             shape="rect"

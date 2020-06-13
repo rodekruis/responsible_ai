@@ -15,20 +15,22 @@ export default class App extends React.Component {
                 <Router>
                     <div className="router-content">
                         <Navbar />
-                        <Switch>
-                            <Route path="/fact">
-                                <FACT />
-                            </Route>
-                            <Route path="/glossary">
-                                <Glossary />
-                            </Route>
-                            <Route path="/feedback">
-                                <Feedback />
-                            </Route>
-                            <Route exact path="/">
-                                <Need />
-                            </Route>
-                        </Switch>
+                        <section className="section">
+                            <Switch>
+                                <Route path="/fact">
+                                    <FACT />
+                                </Route>
+                                <Route path="/glossary">
+                                    <Glossary />
+                                </Route>
+                                <Route path="/feedback">
+                                    <Feedback />
+                                </Route>
+                                <Route exact path="/">
+                                    <Need />
+                                </Route>
+                            </Switch>
+                        </section>
                     </div>
                 </Router>
                 <Footer />

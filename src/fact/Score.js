@@ -36,7 +36,12 @@ export default class Score extends React.Component {
 
     render() {
         return (
-            <div className="level-item has-text-centered">
+            <div
+                className={
+                    "level-item has-text-centered " +
+                    (this.props.label || "fact").toLowerCase()
+                }
+            >
                 <div
                     className="has-tooltip-bottom"
                     data-tooltip={

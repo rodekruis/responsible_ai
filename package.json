@@ -25,7 +25,7 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.4.1",
         "@testing-library/user-event": "^7.2.1",
-        "bulma": "^0.8.0",
+        "bulma": "^0.9.0",
         "bulma-tooltip": "^3.0.2",
         "image-map-resizer": "^1.0.10",
         "jspdf": "^1.5.3",
